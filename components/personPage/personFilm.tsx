@@ -22,8 +22,7 @@ const ItemFilm = () => {
     <div className={style.itemfilms__block}>
         <img src={el.posterUrl}  />
         <div className={style.itemfilms__content}>
-            
-            <h2>{lang(el)}</h2>
+            <div>{lang(el)}</div>
             <p>{el.year} {t('год')}</p>
             <p>{t('Рейтинг')}: {el.ratingKinopoisk}<AiFillStar className={style.itemfilms__star}/></p>
             <p>{t('Просмотры')}: {el.ratingKinopoiskVoteCount}</p>

@@ -64,7 +64,7 @@ export const NavBar = () => {
                         alignItems: "center",
                         marginLeft: "60px",
                         "& .css-1p823my-MuiListItem-root": {
-                            width: "auto",
+                            width: "125px",
                             padding: "8px 8px",
                             cursor: "pointer",
                         },

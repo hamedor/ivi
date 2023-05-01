@@ -9,8 +9,8 @@ i18n.changeLanguage(lang);
 }
     return (
         <>
-            <button onClick={() => changeLanguage("ru")}>RU</button>
-            <button onClick={() => changeLanguage("en")}>EN</button>
+            <button onClick={() => changeLanguage("ru")} className={style.translateButton}>RU</button>
+            <button onClick={() => changeLanguage("en")} className={style.translateButton}>EN</button>
         </>
     )
 }

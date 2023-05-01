@@ -44,5 +44,16 @@
     color: #f1ba22;
 }
 .translateButton {
-    background-color: #110c0c;
+    color: #807f7f;
+    background-color: #181616;
+    cursor: pointer;
+}
+@media (max-width:786px) {
+    .itemfilms__block {
+        display: block;
+    }
+    .itemfilms img {
+        display: flex;
+        margin: auto;
+    }
 }
