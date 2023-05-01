@@ -3,6 +3,7 @@ import { FilmProps } from "@/pages/filmCard/[id]";
 
 
 const useRequest = (url:string | undefined) => {
+  
   const [data, setData] = useState<FilmProps | null>(null);
 
   
@@ -17,7 +18,7 @@ const useRequest = (url:string | undefined) => {
           const response = await fetch(url);
           const result = await response.json();
   
-          if (response.ok) {
+        if (response.ok) {
   
             setData(result);
           } else {

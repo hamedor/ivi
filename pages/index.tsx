@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import { Header } from '@/components/header/Header';
-import Footer from '@/components/footer/footer';
-import React, {Suspense} from 'react'
-import { useTranslation } from 'react-i18next'
-import '../components/translate/i18next'
+import React, {Suspense} from 'react';
+import '../components/translate/i18next';
+import Person from '@/components/personPage/personName';
+import FilmList from '@/components/filmList';
+
 
 
 export default function Home() {
@@ -18,6 +19,9 @@ export default function Home() {
       <Suspense fallback={<div>Loading...</div>}>
       <main>
         <Header />
+
+        
+        <Person />
       </main>
       </Suspense>
     </>

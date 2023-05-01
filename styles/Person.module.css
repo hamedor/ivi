@@ -1,0 +1,48 @@
+.personpage {
+    display: flex;
+}
+.personpage__conteiner {
+    margin-left: auto;
+    margin-right: auto;
+}
+.personpage__conteiner h2 {
+    color: #00b0ff;
+    font-size: 24px;
+}
+.personpage__name {
+    color: #00b0ff;
+    font-size: 40px;
+    margin: 20px;
+}
+.personpage__img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    margin: 30px;
+}
+.itemfilms__block {
+    display: flex;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: #211b31;
+}
+.itemfilms__content {
+    margin: 0 70px;
+}
+.itemfilms h2,
+.itemfilms p {
+    color: #00b0ff;
+    margin: 20px 30px;
+}
+.itemfilms img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+.itemfilms__star {
+    margin-left: 10px;
+    color: #f1ba22;
+}
+.translateButton {
+    background-color: #110c0c;
+}

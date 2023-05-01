@@ -14,7 +14,6 @@ const FilmList = () => {
 
     const films:any = useRequest(url);
 
-
     console.log(films)
     
     return(
@@ -26,14 +25,14 @@ const FilmList = () => {
                 {films?.rows.map((film:any)=>{
                     return(
                         <React.Fragment key={film.id}>
-                       <Link
+                        <Link
                             href={{
                             pathname: `/filmCard/${film.id}`,
                             query: {
                                 id:film.id,
                             },
                             }}>
-                     <Image
+                        <Image
                         className="hoverImage"
                         src={film.posterUrlPreview}
                         alt="постер фильма"
