@@ -90,7 +90,7 @@ const Header = observer(() => {
                     <MyLink 
                         link='/subscribe'
                         content={
-                        <MyButton text={'Смотреть 30 дней бесплатно'} width={'13.3rem'} size={'0.83rem'} color={'#ea003d'}/>
+                        <MyButton text={t('Смотреть 30 дней бесплатно')} width={'13.3rem'} size={'0.83rem'} color={'#ea003d'}/>
                             }
                     />
                 </Box>

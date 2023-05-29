@@ -14,6 +14,7 @@ import styles from "../styles/Header.module.css"
 import Link from 'next/link';
 import MyLink from './navigation/myLink';
 import MyButton from './buttons/myButton';
+import { useTranslation } from 'react-i18next';
 
 const slides: string[] = [
     "/slider/chicago.jpeg", "/slider/cosmos.jpeg", "/slider/crush.jpeg",
@@ -29,6 +30,7 @@ const slides: string[] = [
 
 
 const Hero = () => {
+    const { t } = useTranslation();
     return (
         <Box >
             <Swiper
@@ -79,7 +81,7 @@ const Hero = () => {
                                 <MyLink 
                                     link='/films'
                                     content={
-                                        <MyButton text='Смотреть бесплатно' color='#ea003d'/>
+                                        <MyButton text={t('Смотреть бесплатно')} color='#ea003d'/>
                                     }/>
                             </Box>
                         

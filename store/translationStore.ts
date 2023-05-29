@@ -7,7 +7,7 @@ class TranslationStore {
 
   constructor() {
     makeAutoObservable(this);
-    const storedTranslation = Cookies.get('i18nextLng');
+    const storedTranslation = Cookies.get('ru');
     if (storedTranslation) {
       this.translation = storedTranslation;
     }

@@ -12,8 +12,10 @@ import { observer } from 'mobx-react-lite';
 import MyLink from '../../navigation/myLink';
 import MyButton from '../../buttons/myButton';
 import TileItem from '../tileItem';
+import { useTranslation } from 'react-i18next';
 
 const SubscribeDropdownContent = observer(() => {
+    const { t } = useTranslation();
     return (
         <Box sx={{
             position: "absolute",
@@ -35,11 +37,11 @@ const SubscribeDropdownContent = observer(() => {
                     fontSize: "32px",
                     color: "white",
                     fontWeight: "700"
-                }}>Подписка КиноМан</Typography>
+                }}>{t('Подписка ИВИ')}</Typography>
                 <Typography sx={{
                     fontSize: "16px",
                     color: "rgba(255,255,255,.48)"
-                }}>Стоимость 2.99 $ в месяц, продление автоматическое</Typography>
+                }}>{t('Стоимость 2.99 $ в месяц, продление автоматическое')}</Typography>
                 <Box sx={{
                     display: "flex",
                     flexDirection: "column",
@@ -49,30 +51,30 @@ const SubscribeDropdownContent = observer(() => {
                 }}>
                     <Stack direction={"row"} alignItems={"center"} gap={"20px"}>
                         <TileItem 
-                            text={'Новинки сериалов и фильмов'}
+                            text={t('Новинки сериалов и фильмов')}
                             icon={<VideocamIcon sx={{ color: "rgba(255,255,255,.48)" }} /> }
                             width={'13.75rem'}
                         />
                         <TileItem  
-                            text={'Еженедельное пополнение каталога фильмами и сериалами со всего мира'}
+                            text={t('Еженедельное пополнение каталога фильмами и сериалами со всего мира')}
                             icon={<VideocamIcon sx={{ color: "rgba(255,255,255,.48)" }} /> }
                             width={'28.75rem'}
                         />
                     </Stack>
                     <Stack direction={"row"} alignItems={"center"} gap={"20px"}>
                         <TileItem 
-                            text={'Фильмы и сериалы без рекламы'}
+                            text={t('Фильмы и сериалы без рекламы')}
                             icon={<ExtensionOffIcon sx={{ color: "rgba(255,255,255,.48)" }} />}
                             width={'13.75rem'}
                         />
                         <TileItem 
-                            text={'Семейный аккаунт на 5 устройствах'}
+                            text={t('Семейный аккаунт на 5 устройствах')}
                             icon={<DevicesIcon sx={{ color: "rgba(255,255,255,.48)" }} />}
                             width={'13.75rem'}
                         
                         />
                         <TileItem 
-                            text={'Загрузка на мобильные устройства'}
+                            text={t('Загрузка на мобильные устройства')}
                             icon={<FileDownloadIcon sx={{ color: "rgba(255,255,255,.48)" }} />}
                             width={'13.75rem'}
                         />
@@ -85,14 +87,14 @@ const SubscribeDropdownContent = observer(() => {
                 }}>
                     
                     <MyLink link='/subscribe' content={
-                        <MyButton text='Попробовать 30 дней бесплатно' color='#ea003d'/>
+                        <MyButton text={t('Попробовать 30 дней бесплатно')} color='#ea003d'/>
                     }/>
 
                     <Typography sx={{
                         fontSize: "12px",
                         color: "rgba(255,255,255,.48)"
-                    }}>Отключить можно<br />
-                        в любой момент</Typography>
+                    }}>{t('Отключить можно')}<br />
+                        {t('в любой момент')}</Typography>
                 </Box>
             </Box>
             <Box sx={{ position: "relative" }}>
@@ -102,7 +104,7 @@ const SubscribeDropdownContent = observer(() => {
                     textDecoration: "underline", color: "rgba(255,255,255,.48)",
                     position: "absolute", bottom: "20px", right: "0"
                 }}
-                    href="https://www.ivi.ru/profile/subscriptions">Другие подписки</Link>
+                    href="https://www.ivi.ru/profile/subscriptions">{t('Другие подписки')}</Link>
             </Box>
         </Box>
     )

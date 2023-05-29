@@ -11,9 +11,10 @@ import MyLink from '../../navigation/myLink';
 import MyButton from '../../buttons/myButton';
 import TileItem from '../tileItem';
 import MyText from '@/components/content/myText';
+import { useTranslation } from 'react-i18next';
 
 const ProfileDropDownContent = () => {
-
+    const { t } = useTranslation();
 
     return (
         <Box
@@ -44,15 +45,15 @@ const ProfileDropDownContent = () => {
                     gap: "20px",
                 }}>
                     <Stack direction={"row"} alignItems={"center"} gap={"20px"}>
-                        <TileItem text={'Покупки'} icon={<SubscriptionsIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
-                        <TileItem text={'Смотреть позже'} icon={<BookmarkIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
-                        <TileItem text={'История просмотров'} icon={<HistoryIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
-                        <TileItem text={'Подписки'} icon={<CelebrationIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('Покупки')} icon={<SubscriptionsIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('Смотреть позже')} icon={<BookmarkIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('История просмотров')} icon={<HistoryIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('Подписки')} icon={<CelebrationIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
                     </Stack>
                     <Stack direction={"row"} alignItems={"center"} gap={"20px"}>
-                        <TileItem text={'Активация сертификата'} icon={<WorkspacePremiumIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
-                        <TileItem text={'Вход по коду'} icon={<ResetTvIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
-                        <TileItem text={'Способы оплаты'} icon={<CreditCardIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('Активация сертификата')} icon={<WorkspacePremiumIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('Вход по коду')} icon={<ResetTvIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
+                        <TileItem text={t('Способы оплаты')} icon={<CreditCardIcon sx={{ color: "rgba(255,255,255,.48)" }} />}/>
                     </Stack>
                 </Box>
                 <Box sx={{
@@ -61,7 +62,7 @@ const ProfileDropDownContent = () => {
                     position: "relative"
                 }}>
                     <MyLink link='/profile' content={
-                        <MyButton color='#ea003d' text='Войти или зарегистрироваться' width='18rem'/>
+                        <MyButton color='#ea003d' text={t('Войти или зарегистрироваться')} width='18rem'/>
                     }/>
                     <Box sx={{
                         position: "absolute",
@@ -71,10 +72,10 @@ const ProfileDropDownContent = () => {
                         bottom: "0"
                     }}>
                         <MyLink link={'https://www.ivi.ru/profile/settings'} content={
-                            <MyText text={'Настройки'}/>
+                            <MyText text={t('Настройки')}/>
                         }/>
                         <MyLink link={'https://ask.ivi.ru/?_gl=1*e80bdd*_ga*MTc1MTU2NTg0LjE2ODEzODYwOTI.*_ga_GETQ4387MJ*MTY4Mjk0OTcwNS4yMi4xLjE2ODI5NjgwMjQuNTguMC4w'} content={
-                            <MyText text={'Помощь'}/>
+                            <MyText text={t('Помощь')}/>
                         }/>
                     </Box>
                 </Box>

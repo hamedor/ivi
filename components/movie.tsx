@@ -12,9 +12,10 @@ import {
   } from '@mui/icons-material';
 import MyTooltip from "./content/MyTooltip";
 import TranslationDynamicData from "./content/translationDynamicData";
+import { useTranslation } from "react-i18next";
 
 const Movie = ({film}) => {
-
+    const { t } = useTranslation();
     return(
         <Box key={film.id} sx={{width:'9.5rem', }}>
                     <Link
@@ -33,10 +34,10 @@ const Movie = ({film}) => {
                         <Box className="hoverContent" sx={{width:'100%', height:'100%',padding:'1rem'}}>
                             <FormattedRating rating={film.ratingKinopoisk} smallDecimal={true} color="#fff"/>
                             <Stack spacing={1} sx={{ right: '1rem', top: '1rem', position: 'absolute' }}>
-                                <MyTooltip content={<BookmarkBorderOutlined />} text={'Смотреть позже'}/>
-                                <MyTooltip content={<AutoFixHighOutlined />} text={'Похожее'}/>
-                                <MyTooltip content={<StarBorderPurple500Outlined />} text={'Уже смотрел, оценить'}/>
-                                <MyTooltip content={<DoNotDisturbAltOutlined />} text={'Не нравится такое'}/>                           
+                                <MyTooltip content={<BookmarkBorderOutlined />} text={t('Смотреть позже')}/>
+                                <MyTooltip content={<AutoFixHighOutlined />} text={t('Похожее')}/>
+                                <MyTooltip content={<StarBorderPurple500Outlined />} text={t('Уже смотрел, оценить')}/>
+                                <MyTooltip content={<DoNotDisturbAltOutlined />} text={t('Не нравится такое')}/>                           
                             </Stack>   
                         </Box>
                     </Box>

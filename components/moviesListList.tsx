@@ -1,5 +1,5 @@
 import useRequest from "@/hooks/useRequest";
-
+import { useTranslation } from 'react-i18next';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -25,13 +25,13 @@ import Film from "./movie";
 const MoviesList = ({films}) => {
 
     const SliderContent = films?.rows.map((film) => <Film key={film.id} film={film} />);
-   
+    const { t } = useTranslation();
 
 
     return(
 
             <Box sx={{  mt: '10rem', mb:'10rem' }}>
-                <MyTitle text="Все фильмы"/>
+                <MyTitle text={t("Все фильмы")}/>
 
                {/*  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', mt:'1rem'}}>  */}
                 {/* <Container maxWidth={false} sx={{ width: '1240px', mb: '1rem', paddingLeft: '0 !important', height:'20rem', display:'flex', alignItems:'center', overflowX:'hidden'  }}> */}

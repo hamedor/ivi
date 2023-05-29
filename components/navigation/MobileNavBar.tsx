@@ -8,8 +8,10 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { observer } from 'mobx-react-lite';
 import navbar from "../../store/MobileNavBar"
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const MobileNavBar = observer(() => {
+    const { t } = useTranslation();
     return (
         <BottomNavigation
             sx={{
@@ -36,27 +38,27 @@ const MobileNavBar = observer(() => {
             onChange={(e, newValue) => navbar.handleChange(e, newValue)}
         >
             <BottomNavigationAction
-                label="Домой"
+                label={t("Домой")}
                 value="домой"
                 icon={<Link href="/" style={{ color: "rgba(255,255,255,.48)" }}><HouseIcon /></Link>}
             />
             <BottomNavigationAction
-                label="Каталог"
+                label={t("Каталог")}
                 value="каталог"
                 icon={<Link href="/films" style={{ color: "rgba(255,255,255,.48)" }}><OndemandVideoIcon /></Link>}
             />
             <BottomNavigationAction
-                label="Поиск"
+                label={t("Поиск")}
                 value="поиск"
                 icon={<Link href="/" style={{ color: "rgba(255,255,255,.48)" }}>< SearchIcon /></Link>}
             />
             <BottomNavigationAction
-                label="Профиль"
+                label={t("Профиль")}
                 value="профиль"
                 icon={<Link href="/" style={{ color: "rgba(255,255,255,.48)" }}>< PersonOutlineIcon /></Link>}
             />
             <BottomNavigationAction
-                label="Ещё"
+                label={t("Ещё")}
                 value="ещё"
                 icon={<Link href="/" style={{ color: "rgba(255,255,255,.48)" }}>< MoreHorizIcon /></Link>}
             />

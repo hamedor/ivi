@@ -2,8 +2,10 @@ import { Box, Typography } from '@mui/material'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import React from 'react'
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 const AlertDropdownContent = observer(() => {
+    const { t } = useTranslation();
     return (
         <Box sx={{
             position: "absolute",
@@ -30,7 +32,7 @@ const AlertDropdownContent = observer(() => {
                 gap: "10px"
             }}>
                 <NotificationsIcon sx={{ color: "rgba(255,255,255,.48)", fontSize: "60px" }} />
-                <Typography sx={{ color: "rgba(255,255,255,.48)", }}>Здесь появляются только важные сообщения</Typography>
+                <Typography sx={{ color: "rgba(255,255,255,.48)", }}>{t('Здесь появляются только важные сообщения')}</Typography>
             </Box>
         </Box>
     )
