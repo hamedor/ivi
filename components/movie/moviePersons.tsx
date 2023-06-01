@@ -5,7 +5,7 @@ import Image from "next/image";
 import MyText from "../content/myText";
 import FilmModal from "./movieModal";
 import MyTitle from "../content/myTitle";
-
+import { useTranslation } from "react-i18next";
 import { observer } from "mobx-react-lite";
 import { modalStore } from "@/store/modalStore";
 
@@ -15,10 +15,10 @@ const FilmPersons = observer(({persons}:any) => {
         modalStore.showCreators()
         modalStore.openModal();
     }
-
+    const {t} = useTranslation();
     return (
         <Box>
-            <MyTitle text={"Актёры и создатели"} isButton={true} onClick={openModal}/>
+            <MyTitle text={t("Актёры и создатели")} isButton={true} onClick={openModal}/>
             <Stack direction='row' justifyContent='space-between' sx={{mt:'2rem', mb:'2rem'}}>
             {persons?.slice(0, 10).map((person:any) => {
                 return(

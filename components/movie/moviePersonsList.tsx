@@ -1,6 +1,7 @@
 import { Typography, Box } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Person{
     id: string;
@@ -16,7 +17,8 @@ interface Role {
   }
   
   const PersonsList = ({persons}: PersonsListProps) => {
-    const rolesOrder = ['Режиссеры', 'Актеры', 'Операторы', 'Сценаристы', 'Композитор'];
+    const {t} = useTranslation();
+    const rolesOrder = [`${t('Режиссеры')}, ${t('Актеры')}, ${t('Операторы')}, ${t('Сценаристы')}, ${t('Композитор')}`];
     return (
       <Box>
         {rolesOrder.map(role => (

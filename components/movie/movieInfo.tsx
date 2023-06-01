@@ -8,6 +8,7 @@ import FilmLanguageInfo from "./movieLanguageInfo";
 import FilmName from "../content/translationDynamicData";
 import Medallion from "../content/medallion";
 import MyButton from "../buttons/myButton";
+import { useTranslation } from "react-i18next";
 
 
 interface FilmInfoProps {
@@ -37,7 +38,8 @@ const MovieInfo = ({
     description,
     rating}:FilmInfoProps) => {
 
-      
+      const { t } = useTranslation();
+
     return(
         <Box sx={{color:'#fff', width:'439px', ml:'auto'}}>
           <Box sx={{mb:'2rem'}}>
@@ -85,12 +87,12 @@ const MovieInfo = ({
             <Medallion rating={rating}/>
           </Box>
           <Box sx={{ flexGrow: 3, ml:'1rem'}}>
-              <MyText text={'Рейтинг Киноман'} color="#fff" align="left" weight={500}/>
-              <MyText text={'Интересный сюжет'} color="rgba(255,255,255,.72)" align="left" weight={400}/>
-              <MyText text={'26620 оценок'} color="rgba(255,255,255,.72)" align="left" size={'0.81rem'} weight={400}/>
+              <MyText text={t('Рейтинг Иви')} color="#fff" align="left" weight={500}/>
+              <MyText text={t('Интересный сюжет')} color="rgba(255,255,255,.72)" align="left" weight={400}/>
+              <MyText text={t('26620 оценок')} color="rgba(255,255,255,.72)" align="left" size={'0.81rem'} weight={400}/>
           </Box>
           <Box sx={{ flexGrow: 1, }}>
-            <MyButton color={'transparent'} text={'Оценить'} width="3.4rem"/>
+            <MyButton color={'transparent'} text={t('Оценить')} width="3.4rem"/>
 
           </Box>
         </Box>

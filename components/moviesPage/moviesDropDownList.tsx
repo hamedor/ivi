@@ -2,11 +2,12 @@ import DropDownItem from "./dropDownItem";
 import { moviesStore } from "@/store/moviesStore";
 import { useState, useEffect } from "react";
 import { dropdownStore } from "@/store/DropdownStore";
+import { useTranslation } from "react-i18next";
 
 const MoviesDropDownList = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [actorsInput, setActorsIpnut] = useState('');
-
+    const {t} = useTranslation();
 
     useEffect(() => {
       if (actorsInput) {
@@ -27,7 +28,7 @@ const MoviesDropDownList = () => {
             <DropDownItem
                 button
                 id="genresButton"
-                text="Жанры"
+                text={t("Жанры")}
                 name="genres"
                 type="genres"
                 content={moviesStore.genres}
@@ -40,7 +41,7 @@ const MoviesDropDownList = () => {
             <DropDownItem
                 button
                 id="countriesButton"
-                text="Страны"
+                text={t("Страны")}
                 name="countries"
                 type="countries"
                 content={moviesStore.countries}
@@ -52,7 +53,7 @@ const MoviesDropDownList = () => {
             />
             <DropDownItem
                 input
-                text="фильтр по Актерам"
+                text={t("фильтр по Актерам")}
                 name="actors"
                 type="actors"
                 content={moviesStore.actors}

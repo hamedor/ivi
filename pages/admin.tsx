@@ -3,6 +3,7 @@ import useRequest from "@/hooks/useRequest";
 import { Container, Box } from "@mui/material";
 import MyButton from "@/components/buttons/myButton";
 import { useState} from "react";
+import { useTranslation } from "react-i18next";
 
 import MyText from "@/components/content/myText";
 import MyInput from "@/components/features/myInput";
@@ -11,7 +12,7 @@ const Admin = () => {
 
     const genresUrl = 'http://localhost:3001/movies/filters/genres';
     const genres = useRequest(genresUrl);
-  
+    const {t} = useTranslation();
     const url = 'http://localhost:3003/info?&keywords=';
     const [keywords, setKeywords] = useState('');
     const [data, setData] = useState<any | null>(null);
@@ -31,8 +32,8 @@ const Admin = () => {
 
             <GenresList genres={genres}/>
 
-            <MyInput label={"Введите название фильма"} setState={setKeywords}/>
-            <MyButton func={submit} text="Найти"/>
+            <MyInput label={t("Введите название фильма")} setState={setKeywords}/>
+            <MyButton func={submit} text={t("Найти")}/>
             
             {data?.rows.map(film=>{
                 return(

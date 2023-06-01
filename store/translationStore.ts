@@ -1,13 +1,14 @@
 import { makeAutoObservable } from "mobx";
 import Cookies from 'js-cookie';
+import { changeLanguage } from "i18next";
 
 class TranslationStore {
-  translation = "ru";
+  translation = changeLanguage("ru");
 
 
   constructor() {
     makeAutoObservable(this);
-    const storedTranslation = Cookies.get('ru');
+    const storedTranslation = changeLanguage("ru");
     if (storedTranslation) {
       this.translation = storedTranslation;
     }

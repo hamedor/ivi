@@ -5,10 +5,11 @@ import PersonsList from './moviePersonsList';
 import { modalStore } from '@/store/modalStore';
 import { observer } from 'mobx-react-lite';
 import MyTitle from '../content/myTitle';
+import { useTranslation } from 'react-i18next';
 
 
 const MovieModal = observer(({filmId ,persons, comments }: any) => {
-
+const { t } = useTranslation();
 
 
   return (
@@ -26,9 +27,9 @@ const MovieModal = observer(({filmId ,persons, comments }: any) => {
         <Box sx={{ position: 'relative', width: '1200px', m: '0 auto' }}>
           
           <Stack direction="row" alignItems="center">
-            <MyTitle text='Создатели' isButton={true} showRedBorder={true} onClick={() => modalStore.showCreators()}/>    
-            <MyTitle text='Отзывы' isButton={true} showRedBorder={true} onClick={() => modalStore.showReviews()}/>
-            <MyTitle text='Трейлеры' isButton={true} showRedBorder={true} onClick={() => modalStore.showTrailers()}/>
+            <MyTitle text={t('Создатели')} isButton={true} showRedBorder={true} onClick={() => modalStore.showCreators()}/>    
+            <MyTitle text={t('Отзывы')} isButton={true} showRedBorder={true} onClick={() => modalStore.showReviews()}/>
+            <MyTitle text={t('Трейлеры')} isButton={true} showRedBorder={true} onClick={() => modalStore.showTrailers()}/>
           </Stack>
 
           <Divider sx={{color:'#fff', width:'100%', height:'1px', borderColor:'rgba(255,255,255,0.12)'}}/>

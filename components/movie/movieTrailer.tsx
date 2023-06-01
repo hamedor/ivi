@@ -3,12 +3,13 @@ import {Box, Button, Modal, IconButton} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import MyButton from "../buttons/myButton";
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
+import { useTranslation } from "react-i18next";
 
 const MovieTrailer = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-
+    const {t} = useTranslation();
 
     const openModal = () => {
         setModalIsOpen(true);
@@ -40,7 +41,7 @@ const MovieTrailer = () => {
                     </video>
                     <Box sx={{mt:'1rem'}}>
                         <MyButton 
-                            text={'Трейлер'}
+                            text={t('Трейлер')}
                             icon={<PlayArrowOutlinedIcon/>}
                             func={openModal}
                             color={'rgba(255,255,255,.08)'}

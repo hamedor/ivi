@@ -4,6 +4,7 @@ import MyTitle from "../content/myTitle";
 import MyButton from "../buttons/myButton";
 import Image from "next/image";
 import TranslationDynamicData from "../content/translationDynamicData";
+import { useTranslation } from "react-i18next";
 
 interface DevicesProps{
     nameRu:string;
@@ -12,23 +13,23 @@ interface DevicesProps{
 }
 
 const Devices = ({nameRu,nameEn, poster}:DevicesProps) => {
-
+const { t } = useTranslation();
 
     return(
         <Box sx={{display:'flex',justifyContent:'space-between', mt:'6rem', mb:'6rem'}}>
             <Box>
                 <Stack direction='row' alignItems='center'>
-                    <TranslationDynamicData nameRu={`Смотреть «${nameRu}» на всех устройствах`} nameEn={`Смотреть «${nameEn}» на всех устройствах`} color={"#fff"} weight={700} line={"28px"} align={'left'} size={'1.5rem'}/>
+                    <TranslationDynamicData nameRu={`${t("Смотреть")} «${nameRu}» ${t("на всех устройствах")}`} nameEn={`${t("Смотреть")} «${nameEn}» ${t("на всех устройствах")}`} color={"#fff"} weight={700} line={"28px"} align={'left'} size={'1.5rem'}/>
                 </Stack>
                 <Box sx={{mt:'1rem'}}>
                 <MyText
-                    text={'Приложение доступно для скачивания на iOS, Android, SmartTV и приставках'}
+                    text={t('Приложение доступно для скачивания на iOS, Android, SmartTV и приставках')}
                     align={"left"}/>
                 </Box>
  
                     
                 <Box sx={{mt:'2rem'}}>
-                    <MyButton color={'#c10032'} text="Подключить устройство"/>
+                    <MyButton color={'#c10032'} text={t("Подключить устройство")}/>
                 </Box>  
             </Box>
             <Box>
