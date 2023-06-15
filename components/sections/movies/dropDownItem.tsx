@@ -72,7 +72,7 @@ const DropDownItem = observer(
         {input && (
           <>
             <MyInput label={text} setState={setState} />
-            {isLoading && <MyText text={"загрузка"} />}
+           {/*  {isLoading && <MyText text={"загрузка"} />} */}
           </>
         )}
         <Box
