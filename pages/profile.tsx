@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import MyInput from "@/components/controls/myInput";
 import MyText from "@/components/content/myText";
@@ -6,6 +6,7 @@ import MyButton from "@/components/controls/buttons/myButton";
 import { userStore } from "@/store/userStore";
 import { observer } from "mobx-react-lite";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { toJS } from "mobx";
 
 const profile = observer(() => {
   const [email, setEmail] = useState<string>("");
@@ -33,43 +34,55 @@ const profile = observer(() => {
         },
       }}
     >
-      <Box>
-        <MyText
-          color="#fff"
-          text={
-            userStore.isAuth
-              ? `Пользователь авторизован ${userStore.user.email}`
-              : "Авторизуйтесь"
-          }
-        />
-      </Box>
+{userStore.isAuth ? (
+  <Box>
+    <MyText
+      color="#fff"
+      text={`Пользователь авторизован ${userStore.user.email}`}
+    />
+    <Box
+      display="flex"
+      justifyContent="center"
+      sx={{ width: "100%", mt: "2rem" }}
+    >
+      <MyButton
+        text={"Выход"}
+        func={() => userStore.logout()}
+        hoverColor="#3e3659"
+      />
+    </Box>
+  </Box>
+) : (
+  <Box>
+    <MyText color="#fff" text="Авторизуйтесь" />
+    <Box sx={{ mt: "2rem", width: "100%" }}>
+      <MyInput setState={setLogin} label={"login"} />
+    </Box>
+    <Box sx={{ mt: "2rem", width: "100%" }}>
+      <MyInput setState={setEmail} label={"email"} />
+    </Box>
+    <Box sx={{ mt: "2rem", width: "100%" }}>
+      <MyInput setState={setPassword} label={"password"} type="password" />
+    </Box>
 
-      <Box sx={{ mt: "2rem", width: "100%" }}>
-        <MyInput setState={setLogin} label={"login"} />
-      </Box>
-      <Box sx={{ mt: "2rem", width: "100%" }}>
-        <MyInput setState={setEmail} label={"email"} />
-      </Box>
-      <Box sx={{ mt: "2rem", width: "100%" }}>
-        <MyInput setState={setPassword} label={"password"} />
-      </Box>
-
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        sx={{ width: "100%", mt: "2rem" }}
-      >
-        <MyButton
-          text={"Вход"}
-          func={() => Login(login, email, password)}
-          hoverColor="#3e3659"
-        />
-        <MyButton
-          text={"Регистрация"}
-          func={() => register(login, email, password)}
-          hoverColor="#3e3659"
-        />
-      </Box>
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      sx={{ width: "100%", mt: "2rem" }}
+    >
+      <MyButton
+        text={"Вход"}
+        func={() => Login(login, email, password)}
+        hoverColor="#3e3659"
+      />
+      <MyButton
+        text={"Регистрация"}
+        func={() => register(login, email, password)}
+        hoverColor="#3e3659"
+      />
+    </Box>
+  </Box>
+)}
     </Box>
   );
 });

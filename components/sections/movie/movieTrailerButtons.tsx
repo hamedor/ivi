@@ -21,7 +21,7 @@ const MovieTrailerButtons = ({ openModal, showInBox = false }) => {
         borderBottomRightRadius: showInBox ? "12px" : "unset",
         borderBottomLeftRadius: showInBox ? "12px" : "unset",
         minWidth: showInBox ? "20rem" : "unset",
-        height: showInBox ? "3rem" : "unset",
+        height: showInBox ? "46px" : "unset",
         justifyContent: showInBox ? "space-evenly" : "unset",
       }}
     >
@@ -31,7 +31,7 @@ const MovieTrailerButtons = ({ openModal, showInBox = false }) => {
         sx={{
           alignItems: showInBox ? "center" : "unset",
           mt: showInBox ? "1rem" : "unset",
-          flexWrap: showInBox ? "nowrap" : "wrap",
+        /*   flexWrap: showInBox ? "nowrap" : "wrap", */
           flexDirection: showInBox ? "row" : "unset",
           justifyContent: showInBox ? "space-between" : "unset",
           "@media (max-width:1159px)": {
@@ -41,12 +41,16 @@ const MovieTrailerButtons = ({ openModal, showInBox = false }) => {
             mr: showInBox ? "unset" : "auto",
             justifyContent: "space-between",
           },
-          "@media (max-width:931px)": {
+           "@media (max-width:875px)": {
+            width: "unset",
+           
+          }, 
+           "@media (max-width:846px)": {
             width: "15.50rem",
             ml: "auto",
             mr: "auto",
-            height: "20px",
-          },
+           
+          }, 
         }}
       >
         <MyButton
@@ -57,7 +61,13 @@ const MovieTrailerButtons = ({ openModal, showInBox = false }) => {
           color={showInBox ? "transparent" : "rgba(255,255,255,.08)"}
           hoverColor={"rgba(255,255,255,.18)"}
         />
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{
+          display: "flex",
+          justifyContent:'space-between',
+          "@media (max-width:1159px)": {
+            height:'32px'
+          },
+          }}>
           <Box sx={{ flexGrow: "1" }}>
             <SmallButton
               backgroundColor={
@@ -66,9 +76,10 @@ const MovieTrailerButtons = ({ openModal, showInBox = false }) => {
               hover="rgba(255,255,255,.18)"
               icon={<BookmarkBorderIcon sx={{ color: "#fff" }} />}
               width="100%"
+              height="100%"
             />
           </Box>
-          <Box sx={{ flexGrow: "1" }}>
+          <Box sx={{ flexGrow: "1" , ml:'8px'}}>
             <SmallButton
               backgroundColor={
                 showInBox ? "transparent" : "rgba(255,255,255,.08)"
@@ -76,6 +87,7 @@ const MovieTrailerButtons = ({ openModal, showInBox = false }) => {
               hover="rgba(255,255,255,.18)"
               icon={<NotificationsNoneIcon sx={{ color: "#fff" }} />}
               width="100%"
+              height="100%"
             />
           </Box>
         </Box>

@@ -17,6 +17,7 @@ class UserStore {
 
   setAuth(bool: boolean) {
     this.isAuth = bool;
+   
   }
 
   setUser(user: User) {
@@ -31,8 +32,6 @@ class UserStore {
       const response = await AuthService.login(login, email, password);
       localStorage.setItem("token", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);
-
-      console.log(response.data);
       this.setAuth(true);
       this.setUser(response.data.user);
     } catch (e: any) {
@@ -66,7 +65,8 @@ class UserStore {
       //  const response = await AuthService.logout();
       localStorage.removeItem("token");
       this.setAuth(false);
-      this.setUser({} as User);
+      this.user = {} as User
+      Cookies.set('rolesIvi', '');
     } catch (e: any) {
       console.log(e.response?.data?.message);
     }

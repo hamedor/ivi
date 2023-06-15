@@ -6,14 +6,20 @@ import { useState } from "react";
 import MyText from "@/components/content/myText";
 import MyInput from "@/components/controls/myInput";
 import { Movies } from "@/interfaces/movie";
-import GenresList from "@/components/sections/admin/genresList";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const Admin = () => {
-  const envUrl = process.env.NEXT_PUBLIC_API_URL;
+const Admin = ({isAdmin}) => {
 
-  const genresUrl = `${envUrl}/movies/filters/genres`;
-  const genres = useRequest(genresUrl);
+  if(!isAdmin){
+    return(
+      <Box>
+        <MyText text={'У Вас нет прав для просмотра этой страницы'}/>
+      </Box>
+    )
+  }
+
+
+  const envUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const url = `${envUrl}:3003/info?&keywords=`;
   const [keywords, setKeywords] = useState("");
@@ -29,10 +35,13 @@ const Admin = () => {
 
   return (
     <Container maxWidth={false} sx={{ width: "77.5rem", mb: "1rem" }}>
-      <GenresList genres={genres} />
+      <Box sx={{mt:'4rem'}}>
+        <MyInput label={"Введите название фильма"} setState={setKeywords} />
+        <Box sx={{mt:'2rem'}}>
+        <MyButton func={submit} text="Найти" />
+        </Box>
+      </Box>
 
-      <MyInput label={"Введите название фильма"} setState={setKeywords} />
-      <MyButton func={submit} text="Найти" />
 
       {data?.rows.map((movie) => {
         return (
@@ -47,25 +56,14 @@ const Admin = () => {
 };
 
 export async function getServerSideProps({locale, req}) {
-  // Get the user's role from the request object
- // const userRole = context.req.user.role;
-
- console.log(req.user)
 
 
-
-/*   if (userRole !== 'admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
- */
+  const rolesIvi = req.cookies.rolesIvi;
+  const isAdmin = rolesIvi ? rolesIvi.includes('ADMIN') : false;
 
   return {
     props: {
+      isAdmin,
       ...(await serverSideTranslations(locale ?? "ru", ["common"])),
     },
   };

@@ -4,11 +4,13 @@ import { Dispatch, SetStateAction } from "react";
 interface MyInputProps {
   label: string;
   setState: Dispatch<SetStateAction<string>> | undefined;
+  type?:string
 }
 
-const MyInput = ({ label, setState }: MyInputProps) => {
+const MyInput = ({ label, setState, type='text' }: MyInputProps) => {
   return (
     <TextField
+      type={type}
       onChange={(e) => (setState ? setState(e.target.value) : undefined)}
       sx={{
         width: "100%",

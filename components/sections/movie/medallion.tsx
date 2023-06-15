@@ -9,14 +9,16 @@ interface MedallionProps {
   transparentBorder?: boolean;
   fontSize?: string;
   fontWeight?: number;
+  minWidth?:string;
 }
 
 const Medallion = ({
   image,
   rating,
   transparentBorder = false,
-  fontSize = "1rem",
+  fontSize = "16px",
   fontWeight,
+  minWidth='unset'
 }: MedallionProps) => {
   let backgroundColor;
 
@@ -33,7 +35,19 @@ const Medallion = ({
   const Content = () => {
     if (image) {
       return (
-        <Box sx={{ width: "56px", height: "40px", position: "relative" }}>
+        <Box sx={{
+          width: "56px",
+          height: "40px",
+          position: "relative",
+          "@media (max-width:875px)": {
+            width:"86px",
+            height:"72px"
+          },
+          "@media (max-width:450px)": {
+            width: "56px",
+            height: "40px",
+          }
+          }}>
           <Image
             fill
             alt="фото актера"
@@ -47,12 +61,16 @@ const Medallion = ({
       <Box
         sx={{
           backgroundColor,
+          minWidth,
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: "6px",
+          "@media (max-width:879px)": {
+            maxWidth:'100px'
+          }
         }}
       >
         <FormattedRating

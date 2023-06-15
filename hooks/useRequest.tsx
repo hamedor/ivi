@@ -7,7 +7,6 @@ const useRequest = (
 ) => {
   const [data, setData] = useState<any | null>(null);
 
-  //console.log(url)
 
   useEffect(() => {
     if (!url) {

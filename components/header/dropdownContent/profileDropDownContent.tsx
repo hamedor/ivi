@@ -75,6 +75,7 @@ const ProfileDropDownContent = observer(() => {
           position: "relative",
         }}
       >
+        
         <MyLink
           link="/profile"
           content={
@@ -105,10 +106,7 @@ const ProfileDropDownContent = observer(() => {
             content={<MyText text={"Помощь"} />}
           />
 
-          {/*                         <MyText text={userStore?.isAuth ? `Пользователь авторизован ${userStore?.user.email}` : 'Авторизуйтесь'}/>  
-                      <MyButton text={userStore?.isAuth ? `Выход` : 'Вход'} func={
-                            userStore?.isAuth ? () => userStore?.logout() : ()=> router.push('/profile')
-                        } width='100%'/>  */}
+
         </Box>
       </Box>
     </Box>

@@ -18,11 +18,11 @@ const MovieReviews = ({ comments }) => {
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <MyTitle text="Отзывы" isButton={true} onClick={openModal} />
         <Box sx={{ ml: 1, mt: "-4px" }}>
-          <MyText text={count} align="left" />
+          <MyText text={count} align="left" size="10px"/>
         </Box>
       </Box>
       <Box sx={{ mt: "1rem" }}>
-        <MyText text={"О фильме "} align={"left"} />
+        <MyText text={"О фильме "} align={"left"} size="16px"/>
       </Box>
 
       <CommentsList showChildComments={false} comments={comments} />

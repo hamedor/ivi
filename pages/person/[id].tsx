@@ -37,9 +37,10 @@ const person = ({ initialMobxState }: any) => {
     return five;
   };
 
+
   return (
     <Box sx={{ mb: "4rem", "@media (max-width: 1200px)": {} }}>
-      <BackButton />
+       <BackButton />
       <Container
         maxWidth={false}
         sx={{
@@ -66,20 +67,20 @@ const person = ({ initialMobxState }: any) => {
               <Image
                 fill
                 style={{ objectFit: "cover" }}
-                src={store.person.person.posterUrl}
-                alt={store.person.person.nameRu}
+                src={store.person.person?.posterUrl}
+                alt={store.person.person?.nameRu}
               />
             </Box>
             <Box
               sx={{ mt: "1rem", "@media (max-width: 876px)": { mt: "2rem" } }}
             >
-              <MyTitle text={store.person.person.nameRu} size="3.5rem" />
+              <MyTitle text={store.person.person?.nameRu} size="3.5rem" />
             </Box>
 
             <Box
               sx={{ mt: "1rem", "@media (max-width: 876px)": { mt: "2rem" } }}
             >
-              <MyText text={store.person.person.nameEn} size="1.75rem" />
+              <MyText text={store.person.person?.nameEn} size="1.75rem" />
             </Box>
 
             <Stack
@@ -90,8 +91,8 @@ const person = ({ initialMobxState }: any) => {
             >
               <MyTitle text={"Полная фильмография"} />
               <MyText
-                text={`${store.person.movies.length} ${getNoun(
-                  store.person.movies.length,
+                text={`${store.person.movies?.length} ${getNoun(
+                  store.person.movies?.length,
                   "фильм",
                   "фильма",
                   "фильмов"
@@ -104,7 +105,7 @@ const person = ({ initialMobxState }: any) => {
               <Hr />
             </Box>
 
-            {store.person.movies.map((movie) => {
+            {store.person.movies?.map((movie) => {
               return (
                 <Box
                   key={movie.id}
@@ -224,7 +225,7 @@ const person = ({ initialMobxState }: any) => {
       </Container>
       <Box sx={{ mt: "2rem", display: "flex", justifyContent: "center" }}>
         <MyBreadcrumbs links={breadcrumbs} />
-      </Box>
+      </Box> 
     </Box>
   );
 };
@@ -236,8 +237,10 @@ export async function getServerSideProps({ query, res, locale }) {
     "Cache-Control",
     "public, s-maxage=10, stale-while-revalidate=59"
   );
+  
 
   const personUrl = `${baseUrl}:3003/info/person/${id}`;
+
   const person = await fetch(personUrl).then((res) => res.json());
 
   const initialData = {

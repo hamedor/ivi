@@ -20,8 +20,11 @@ const MovieInfoRating = ({ rating, voteCount }: MovieInfoRatingProps) => {
         padding: "0.4rem",
         mt: "1rem",
         borderRadius: "12px",
-        "@media (max-width:931px)": {
-          height: "10rem",
+        "@media (max-width:1159px)": {
+          height: "8rem",
+        },
+        "@media (max-width:848px)": {
+          height: "92px",
         },
       }}
     >
@@ -29,8 +32,9 @@ const MovieInfoRating = ({ rating, voteCount }: MovieInfoRatingProps) => {
         <Medallion
           transparentBorder={true}
           rating={rating}
-          fontSize={"1.4rem"}
+          fontSize={"20px"}
           fontWeight={700}
+          minWidth="50px"
         />
       </Box>
       <Box

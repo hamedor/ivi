@@ -8,6 +8,7 @@ interface smallButtonProps {
   backgroundColor?: string;
   hover?: string;
   width?: string;
+  height?: string;
 }
 
 const SmallButton = ({
@@ -16,6 +17,7 @@ const SmallButton = ({
   backgroundColor = "#1f1b2e",
   hover = "#3e3659",
   width = "2.5rem",
+  height = '2.5rem'
 }: smallButtonProps) => {
   return (
     <Button
@@ -26,7 +28,7 @@ const SmallButton = ({
         borderWidth: "1px",
         boxShadow: backgroundColor === "transparent" ? 0 : undefined,
         borderRadius: isCircle ? "50%" : "8px",
-        height: "2.5rem",
+        height,
         width,
         minWidth: "2.5rem",
         padding: 0,

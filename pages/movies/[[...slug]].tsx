@@ -123,7 +123,7 @@ const Movies = observer(({ initialMobxState }: any) => {
 
 export async function getServerSideProps({ req, res, locale, query }) {
   const currentLanguage = req.cookies.currentLanguage;
-  console.log('query',query)
+
 
   res.setHeader(
     "Cache-Control",
@@ -133,8 +133,6 @@ export async function getServerSideProps({ req, res, locale, query }) {
   rootStore.moviesStore.resetFilters(true);
   
   const apiUrl = await rootStore.moviesStore.generateUrl(query);
-
-  console.log('API',apiUrl)
 
 
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;

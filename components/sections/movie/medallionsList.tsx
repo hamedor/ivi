@@ -13,10 +13,31 @@ const MedallionList = ({ persons, rating }: MedallionListProps) => {
   return (
     <Stack
       direction="row"
-      sx={{ justifyContent: "center", mt: "2rem" }}
+      sx={{ justifyContent: "center", mt: "2rem",
+      "@media (max-width:875px)": {
+        width:'450px',
+        justifyContent:'space-between',
+        mt:'32px'
+      },
+      "@media (max-width:450px)": {
+        width:'100%',
+        justifyContent:'space-between',
+       
+      }  }}
       spacing={2}
     >
-      <Box sx={{ height: "56px", width: "56px" }}>
+      <Box sx={{
+        height: "56px",
+        width: "56px",
+        "@media (max-width:875px)": {
+          width:"86px",
+          height:"86px"
+        },
+        "@media (max-width:450px)": {
+          width: "60px",
+          height: "50px",
+        }
+       }}>
         <Medallion rating={rating} />
       </Box>
 
@@ -35,11 +56,23 @@ const MedallionList = ({ persons, rating }: MedallionListProps) => {
               }}
               href={`/person/${e.id}`}
             >
-              <Box sx={{ height: "56px", width: "56px" }}>
+              <Box sx={{ 
+                height: "56px",
+                width: "56px",
+                "@media (max-width:875px)": {
+                  width:"86px",
+                  height:"86px"
+                },
+                "@media (max-width:450px)": {
+                  width: "66px",
+                  height: "50px",
+                }
+              
+            }}>
                 <Medallion image={e.posterUrl} />
               </Box>
               <Box sx={{ width: "77px" }}>
-                <MyText text={e.nameRu} align="center" />
+                <MyText text={e.nameRu} align="center" size="16px" line="20px"/>
               </Box>
             </Link>
           );

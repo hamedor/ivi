@@ -3,9 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { Person } from "../../../interfaces/persons";
 
-interface Role {
-  nameRu: string;
-}
 interface PersonsListProps {
   persons: Person[];
 }

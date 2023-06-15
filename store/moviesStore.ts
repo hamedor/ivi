@@ -121,7 +121,6 @@ class MoviesStore {
                     name: val,
                     id: data[0].id
                   });
-                  console.log('this should be logged first', toJS(this.rootStore.ssrStore.selectedFilters))
                 } else {
                   this.rootStore.ssrStore.selectedFilters[key].push({
                     name: val,
@@ -230,8 +229,6 @@ class MoviesStore {
       path = filterStrings.join("+");
     }
   
-    console.log('path',path)
-  
     router.push(
       {
         pathname: `/movies/${path}`,
@@ -241,10 +238,6 @@ class MoviesStore {
     );
   }
   
-  
-  
-  
-
   async generateUrl(query) {
     await this.updateSelectedFiltersFromUrl(query);
   
@@ -259,7 +252,6 @@ class MoviesStore {
        
         return `${key}=${filterValues}`;
       });
-      console.log(toJS(this.rootStore.ssrStore.selectedFilters))
   
     return filterStrings.join("&");
   }
