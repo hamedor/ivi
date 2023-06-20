@@ -44,6 +44,7 @@ const CommentAddForm = ({ id, movieId }: CommentAddFormProps) => {
   );
 
   const sendComment = () => {
+    console.log(id)
     setIsClicked(true);
     router.replace(router.asPath);
   };

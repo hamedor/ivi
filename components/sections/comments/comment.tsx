@@ -29,6 +29,8 @@ const Comment = ({
     (c) => c.repliedOnComment === comment.id
   );
 
+
+
   const commentRef = useRef<HTMLElement | null>(null);
 
   const moveToComment = (e) => {

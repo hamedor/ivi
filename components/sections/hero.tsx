@@ -12,6 +12,7 @@ import styles from "../../styles/Hero.module.css";
 
 import MyLink from "../controls/navigation/myLink";
 import MyButton from "../controls/buttons/myButton";
+import { useTranslation } from "next-i18next";
 
 const slides: string[] = [
   "/slider/chicago.jpeg",
@@ -43,6 +44,7 @@ const slides: string[] = [
 ];
 
 const Hero = () => {
+  const { t } = useTranslation("common");
   return (
     <Box
       sx={{
@@ -113,7 +115,7 @@ const Hero = () => {
                   <MyLink
                     link="/movies"
                     content={
-                      <MyButton text="Смотреть бесплатно" color="#ea003d" />
+                      <MyButton text={t("Смотреть бесплатно")} color="#ea003d" />
                     }
                   />
                 </Box>

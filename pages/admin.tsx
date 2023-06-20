@@ -12,8 +12,8 @@ const Admin = ({isAdmin}) => {
 
   if(!isAdmin){
     return(
-      <Box>
-        <MyText text={'У Вас нет прав для просмотра этой страницы'}/>
+      <Box sx={{margin:'4rem auto', width:'25rem'}}>
+        <MyText  text={'У Вас нет прав для просмотра этой страницы'}/>
       </Box>
     )
   }

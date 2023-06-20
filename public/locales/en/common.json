@@ -7,6 +7,7 @@
   "Кино": "Kino",
   "Ман": "Man",
   "Смотреть 30 дней бесплатно": "Watch 30 days for free",
+  "Смотреть бесплатно": "Watch free",
   "Поиск": "Search",
   "В Каталог": "To catalog",
   "О нас": "About Us",
@@ -31,5 +32,8 @@
   "Смотрите на": "Look at",
   "Все устройства": "All devices",
 
-  "change-locale": "EN"
+  "change-locale": "EN",
+  "index-title": "Ivi online cinema: good quality movies always bring real pleasure.",
+  "showMore": "Show more",
+  "showLess": "Show less"
 }

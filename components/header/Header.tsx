@@ -143,7 +143,7 @@ const Header = observer(({ store, changeTo }: HeaderProps) => {
               link="/subscribe"
               content={
                 <MyButton
-                  text={"Смотреть 30 дней бесплатно"}
+                  text={t("Смотреть 30 дней бесплатно")}
                   width={"13.3rem"}
                   size={"12px"}
                   color={"#ea003d"}

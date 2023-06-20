@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import MyText from "../content/myText";
 import { cutText } from "../../functions/cutText";
 import MyButton from "../controls/buttons/myButton";
+import { useTranslation } from "next-i18next";
 
 interface ShowMoreTextProps {
   text: string;
@@ -22,6 +23,7 @@ const ShowMoreText = ({
   showCollapseButton = false,
 }: ShowMoreTextProps) => {
   const [showFullText, setShowFullText] = useState(false);
+  const { t } = useTranslation();
 
   const handleShowMore = () => {
     setShowFullText(true);
@@ -62,7 +64,7 @@ const ShowMoreText = ({
         {!showFullText && text?.length > length && buttonText && (
           <MyButton
             func={handleShowMore}
-            text={buttonText}
+            text={t('showMore')}
             color={"transparent"}
             justifyContent={"flex-start"}
             fontColor={"rgba(255,255,255,0.68)"}
@@ -72,7 +74,7 @@ const ShowMoreText = ({
         {showFullText && showCollapseButton && (
           <MyButton
             func={handleCollapse}
-            text={"Свернуть"}
+            text={t('showLess')}
             color={"transparent"}
             justifyContent={"flex-start"}
             fontColor={"rgba(255,255,255,0.68)"}

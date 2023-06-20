@@ -23,6 +23,7 @@ export default function Layout({ children, className }: LayoutProps) {
         maxWidth={false}
         sx={{
           width: "77.5rem",
+          maxWidth:"1240px",
           mb: "1rem",
           pb: "4rem",
           display: "flex",

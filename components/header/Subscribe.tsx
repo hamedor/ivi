@@ -3,8 +3,13 @@ import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import React from "react";
 import Link from "next/link";
 import MyText from "../content/myText";
+import { useTranslation } from "next-i18next";
 
 const Subscribe = () => {
+  
+  const { t } = useTranslation();
+
+
   return (
     <Box
       sx={{
@@ -26,7 +31,7 @@ const Subscribe = () => {
           }}
         >
           <MyText
-            text={"30 дней подписки бесплатно"}
+            text={t("Смотреть 30 дней бесплатно")}
             size="16px"
             color="#fff"
           />
