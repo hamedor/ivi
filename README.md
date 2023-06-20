@@ -47,6 +47,9 @@ Cтраница списка фильмов:
 ## Скриншоты:
 
 [![image.png](https://i.postimg.cc/02j4JcLm/image.png)](https://postimg.cc/ppNCwYVX)
+
 [![image.png](https://i.postimg.cc/ZYW7bj2M/image.png)](https://postimg.cc/hhqbM8SL)
+
 [![image.png](https://i.postimg.cc/zBsnXwHs/image.png)](https://postimg.cc/R6T3gHRd)
+
 [![image.png](https://i.postimg.cc/tCCgnZdw/image.png)](https://postimg.cc/0rFvLNB0)
